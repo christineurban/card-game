@@ -1,0 +1,9 @@
+{
+    "extends": "standard",
+    "rules": {
+        "indent": ["error", 4],
+        "semi": 0,
+        "space-before-function-paren": ["error", "never"],
+        "space-infix-ops": "off"
+    }
+}
