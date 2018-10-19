@@ -19,7 +19,8 @@
     "mocha": "^5.2.0"
   },
   "scripts": {
-    "test": "mocha --recursive"
+    "test": "mocha --recursive",
+    "lint": "$(npm bin)/eslint ."
   },
   "repository": {
     "type": "git",
