@@ -37,7 +37,6 @@ describe('Deck', function() {
             deck.shuffle();
 
             expect(deck._cards).to.not.deep.equal(staticDeck._cards);
-            expect(deck._cards.length).to.equal(staticDeck._cards.length);
         });
     });
 
