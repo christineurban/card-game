@@ -8,7 +8,7 @@ class Game {
 	deal(numCards) {
 		for (let i = 0; i < numCards.length; i++) {
 			this._players.forEach((player) => {
-				card = this._deck.draw();
+				const card = this._deck.draw();
 				console.log(card);
 				player.addToHand(card);
 			});
