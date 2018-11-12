@@ -6,11 +6,9 @@ class Game {
     }
 
 	deal(numCards) {
-		for (let i = 0; i < numCards.length; i++) {
+		for (let i = 0; i < numCards; i++) {
 			this._players.forEach((player) => {
-				const card = this._deck.draw();
-				console.log(card);
-				player.addToHand(card);
+				player.addToHand(this._deck.draw());
 			});
 		}
 	}
