@@ -10,17 +10,10 @@ class Deck {
     }
 
     shuffle(times=1) {
-        let currIndex = this._cards.length * times;
-	    let temp, randIndex;
+	    for (let i = 0; i < this._cards.length * times; i++) {
+		    const randIndex = Math.floor(Math.random() * i);
 
-	    while (currIndex !== 0) {
-
-		    randIndex = Math.floor(Math.random() * currIndex);
-		    currIndex -= 1;
-
-		    temp = this._cards[currIndex];
-		    this._cards[currIndex] = this._cards[randIndex];
-		    this._cards[randIndex] = temp;
+		    this._cards[i], this._cards[randIndex] = this._cards[randIndex] = this._cards[i];
 	    }
 	}
 

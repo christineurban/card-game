@@ -3,6 +3,10 @@ class Hand {
         this._cards = cards; // array of Cards
     }
 
+    getHand() {
+        return this._cards;
+    }
+
 	addCard(card) {
 		this._cards.push(card);
 	}

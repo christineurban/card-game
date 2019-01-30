@@ -33,7 +33,7 @@ describe('Deck', function() {
 
     context('shuffle', function() {
         it('should rearrange the Cards in the Deck', function() {
-            const staticDeck = new Deck(build());
+            const staticDeck = JSON.parse(JSON.stringify(deck));
             deck.shuffle();
 
             expect(deck._cards).to.not.deep.equal(staticDeck._cards);
@@ -42,7 +42,7 @@ describe('Deck', function() {
 
     context('cut', function() {
         it('should swap the Deck at the specified pivot point', function() {
-            const staticDeck = new Deck(build());
+            const staticDeck = JSON.parse(JSON.stringify(deck));
             deck.cut();
 
             expect(deck._cards).to.not.deep.equal(staticDeck._cards);

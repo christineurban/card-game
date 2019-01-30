@@ -33,7 +33,7 @@ describe('Game', function() {
 
             game._players.forEach((player) => {
                 expect(player._hand).to.be.instanceOf(Hand);
-                expect(player._hand._cards).to.have.lengthOf(2);
+                expect(player._hand.getHand()).to.have.lengthOf(2);
             });
         });
     });
