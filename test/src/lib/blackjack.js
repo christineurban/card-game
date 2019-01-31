@@ -16,9 +16,9 @@ describe('Blackjack', function() {
                 new Player('Player 1', new Hand()),
                 new Player('Player 2', new Hand()),
                 new Player('Player 3', new Hand()),
-                new Player('Player 4', new Hand()),
-                new Player('Dealer', new Hand(), 'dealer')
-            ]
+                new Player('Player 4', new Hand())
+            ],
+            new Player('Dealer', new Hand(), 'dealer')
         );
     });
 

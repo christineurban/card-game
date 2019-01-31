@@ -8,7 +8,7 @@ export default function build() {
         new Suit(Suit.HEART.NAME, Suit.HEART.COLOR),
         new Suit(Suit.SPADE.NAME, Suit.SPADE.COLOR)
     ]
-    const values = [
+    const names = [
         'ace',
         'two',
         'three',
@@ -25,8 +25,8 @@ export default function build() {
     ];
 
     return [].concat.apply([], suits.map((suit) => {
-        return values.map((value, i) => {
-            return new Card(suit, i+1, `${value} of ${suit.getName()}s`);
+        return names.map((name, i) => {
+            return new Card(suit, i+1, `${name} of ${suit.getName()}s`);
         });
     }));
 }
