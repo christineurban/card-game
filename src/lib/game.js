@@ -1,13 +1,13 @@
 class Game {
-    constructor(name, deck, allPlayers) {
+    constructor(name, deck, players) {
         this._name = name; // string
         this._deck = deck; // Deck
-        this._allPlayers = allPlayers; // array of Players
+        this._players = players; // array of Players
     }
 
     deal(numCards) {
         for (let i = 0; i < numCards; i++) {
-            this._allPlayers.forEach((player) => {
+            this._players.forEach((player) => {
                 player.addToHand(this._deck.draw());
             });
         }
@@ -21,4 +21,4 @@ class Game {
 }
 
 
-module.exports = Game;
+export default Game;

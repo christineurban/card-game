@@ -1,12 +1,12 @@
 'use strict';
 
-const expect = require('chai').expect;
+import build from '../../../src/lib/deck-builder';
+import Deck from '../../../src/lib/deck';
+import Game from '../../../src/lib/game';
+import Hand from '../../../src/lib/hand';
+import Player from '../../../src/lib/player';
 
-const build = require('../../../src/lib/deck-builder');
-const Deck = require('../../../src/lib/deck');
-const Game = require('../../../src/lib/game');
-const Hand = require('../../../src/lib/hand');
-const Player = require('../../../src/lib/player');
+const expect = require('chai').expect;
 
 
 describe('Game', function() {
@@ -29,7 +29,7 @@ describe('Game', function() {
         it('should give each player two Cards and put it in their Hand', function() {
             game.deal(2);
 
-            game._allPlayers.forEach((player) => {
+            game._players.forEach((player) => {
                 expect(player._hand).to.be.instanceOf(Hand);
                 expect(player._hand.getHand()).to.have.lengthOf(2);
             });

@@ -1,10 +1,10 @@
 'use strict';
 
-const expect = require('chai').expect;
+import build from '../../../src/lib/deck-builder';
+import Card from '../../../src/lib/card';
+import Deck from '../../../src/lib/deck';
 
-const build = require('../../../src/lib/deck-builder');
-const Card = require('../../../src/lib/card');
-const Deck = require('../../../src/lib/deck');
+const expect = require('chai').expect;
 
 
 describe('Deck Builder', function() {

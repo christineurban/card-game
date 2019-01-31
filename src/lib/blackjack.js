@@ -1,22 +1,24 @@
-const build = require('./deck-builder');
-const Deck = require('./deck');
-const Game = require('./game');
+import build from './deck-builder';
+import Deck from './deck';
+import Game from './game';
 
 class Blackjack extends Game {
-    constructor(players, dealer) {
+    constructor(players) {
         super().constructor(
             'Blackjack',
             new Deck(build()).shuffle(),
-            players.push(dealer)
+            players
         )
-        this._players = players; // array of Players
-        this._dealer = dealer; // Player of type 'dealer'
     }
 
     play() {
         this.deal(2);
 
-        let dealerCardFaceUp = this._getNumericValue(this._dealer.getHand()[0].getValue());
+        const dealer = this._players.filter((player) => {
+            return player.getType === 'dealer';
+        });
+
+        let dealerCardFaceUp = this._getNumericValue(dealer.getHand()[0].getValue());
 
         if (dealerCardFaceUp === 'ace') {
             dealerCardFaceUp = 11;
@@ -50,7 +52,7 @@ class Blackjack extends Game {
             });
         }
 
-        const dealerScore = this._dealer.getScore();
+        const dealerScore = dealer.getScore();
 
         if (dealerScore > 21) {
             console.log(`Dealer busts at ${dealerScore}! Everyone wins :)`)
@@ -105,8 +107,7 @@ class Blackjack extends Game {
 
             possibleHands.forEach((hand) => {
                 if (hand >= 21) {
-                    prevHand ? player.updateScore(prevHand) : player.updateScore(hand);
-                    return;
+                    return prevHand ? player.updateScore(prevHand) : player.updateScore(hand);
                 }
                 else {
                     prevHand = hand;
@@ -147,4 +148,4 @@ class Blackjack extends Game {
 }
 
 
-module.exports = Blackjack;
+export default Blackjack;

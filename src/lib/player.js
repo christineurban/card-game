@@ -26,10 +26,14 @@ class Player {
         return this._hand.getHand();
     }
 
+    getType() {
+        return this._type;
+    }
+
     getScore() {
         return this._score;
     }
 }
 
 
-module.exports = Player;
+export default Player;

@@ -1,7 +1,7 @@
-const Card = require('./card');
-const Suit = require('./suit');
+import Card from './card';
+import Suit from './suit';
 
-module.exports = function build() {
+export default function build() {
     const suits = [
         new Suit(Suit.CLUB.NAME, Suit.CLUB.COLOR),
         new Suit(Suit.DIAMOND.NAME, Suit.DIAMOND.COLOR),

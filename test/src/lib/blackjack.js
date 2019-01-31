@@ -1,10 +1,10 @@
 'use strict';
 
-const expect = require('chai').expect;
+import Blackjack from '../../../src/lib/blackjack';
+import Hand from '../../../src/lib/hand';
+import Player from '../../../src/lib/player';
 
-const Blackjack = require('../../../src/lib/blackjack');
-const Hand = require('../../../src/lib/hand');
-const Player = require('../../../src/lib/player');
+const expect = require('chai').expect;
 
 
 describe('Blackjack', function() {
@@ -16,9 +16,9 @@ describe('Blackjack', function() {
                 new Player('Player 1', new Hand()),
                 new Player('Player 2', new Hand()),
                 new Player('Player 3', new Hand()),
-                new Player('Player 4', new Hand())
-            ],
-            new Player('Dealer', new Hand(), 'dealer')
+                new Player('Player 4', new Hand()),
+                new Player('Dealer', new Hand(), 'dealer')
+            ]
         );
     });
 

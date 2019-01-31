@@ -13,7 +13,9 @@ class Deck {
         for (let i = 0; i < this._cards.length * times; i++) {
             const randIndex = Math.floor(Math.random() * i);
 
+            /* eslint-disable */
             this._cards[i], this._cards[randIndex] = this._cards[randIndex] = this._cards[i];
+            /* eslint-enable */
         }
     }
 
@@ -24,4 +26,4 @@ class Deck {
 }
 
 
-module.exports = Deck;
+export default Deck;
