@@ -4,6 +4,10 @@ class Card {
         this._value = value; // int
         this._name = name; // string
     }
+
+    getValue() {
+        return this._value;
+    }
 }
 
 

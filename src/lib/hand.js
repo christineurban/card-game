@@ -7,9 +7,9 @@ class Hand {
         return this._cards;
     }
 
-	addCard(card) {
-		this._cards.push(card);
-	}
+    addCard(card) {
+        this._cards.push(card);
+    }
 }
 
 

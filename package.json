@@ -20,7 +20,7 @@
   },
   "scripts": {
     "test": "mocha --recursive",
-    "lint": "$(npm bin)/eslint ."
+    "lint": "./node_modules/.bin/eslint ."
   },
   "repository": {
     "type": "git",
