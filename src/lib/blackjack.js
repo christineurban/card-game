@@ -9,8 +9,13 @@ class Blackjack {
     }
 
     play() {
+        const dealerCardFaceUp = this._setup();
+        const standingPlayers = this._playRounds(dealerCardFaceUp);
+        this._dealerRound(standingPlayers);
+    }
+
+    _setup() {
         console.log('\n\n----------------- B L A C K J A C K -----------------');
-        let round = 1;
 
         this._deck.shuffle();
 
@@ -27,15 +32,20 @@ class Blackjack {
             dealerCardFaceUp = 11;
         };
 
-        console.log(`\nDealer's face up card is ${dealerCardFaceUp}.`)
+        console.log(`\nDealer's face up card is ${dealerCardFaceUp}.`);
 
+        return dealerCardFaceUp;
+    }
+
+    _playRounds(dealerCardFaceUp) {
         let standingPlayers = [];
 
         while (this._players.length) {
+            let round = 1;
             console.log(`\n-------\nRound ${round}\n-------\n`)
 
             this._players.forEach((player) => {
-                player.changeScore(this.calculateScore(player.getHand()));
+                player.changeScore(this._calculateScore(player.getHand()));
                 const score = player.getScore();
 
                 if (score < 16 || score === 16 && dealerCardFaceUp > 6) {
@@ -54,13 +64,17 @@ class Blackjack {
                         standingPlayers.push(player);
                     }
 
-                    this.removePlayer(player);
+                    this._removePlayer(player);
                 }
             });
 
             round++;
         }
 
+        return standingPlayers;
+    }
+
+    _dealerRound(standingPlayers) {
         if (!standingPlayers.length) {
             console.log('\nUt oh... everyone busts! Dealer wins.');
         }
@@ -71,7 +85,7 @@ class Blackjack {
                 '\n--------------------------------------------\n'
             )
 
-            this._dealer.changeScore(this.calculateScore(this._dealer.getHand()));
+            this._dealer.changeScore(this._calculateScore(this._dealer.getHand()));
 
             const dealerScore = this._dealer.getScore();
 
@@ -100,7 +114,7 @@ class Blackjack {
         console.log('\n\n------------------- T H E ~ E N D -------------------\n\n')
     }
 
-    calculateScore(hand) {
+    _calculateScore(hand) {
         const cards = []
         let total = 0;
         let aceCount = 0;
@@ -147,7 +161,7 @@ class Blackjack {
         return value > 10 ? 10 : value;
     }
 
-    removePlayer(player) {
+    _removePlayer(player) {
         this._players = this._players.filter((p) => {
             return player.getName() !== p.getName();
         });

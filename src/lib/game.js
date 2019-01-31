@@ -12,12 +12,6 @@ class Game {
             });
         }
     }
-
-    removePlayer(player) {
-        this._players = this._players.filter((p) => {
-            return player.getName() !== p.getName();
-        });
-    }
 }
 
 
