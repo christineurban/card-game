@@ -1,14 +1,12 @@
 'use strict';
 
-const assert = require('assert');
-const expect = require('chai').expect;
+import build from '../../../src/lib/deck-builder';
+import Deck from '../../../src/lib/deck';
+import Game from '../../../src/lib/game';
+import Hand from '../../../src/lib/hand';
+import Player from '../../../src/lib/player';
 
-const build = require('../../../src/lib/deck-builder');
-const Card = require('../../../src/lib/card');
-const Deck = require('../../../src/lib/deck');
-const Game = require('../../../src/lib/game');
-const Hand = require('../../../src/lib/hand');
-const Player = require('../../../src/lib/player');
+const expect = require('chai').expect;
 
 
 describe('Game', function() {
@@ -27,7 +25,7 @@ describe('Game', function() {
         );
     });
 
-    context('deal(2)', function() {
+    context('deal 2', function() {
         it('should give each player two Cards and put it in their Hand', function() {
             game.deal(2);
 

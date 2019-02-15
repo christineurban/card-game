@@ -5,14 +5,14 @@ class Game {
         this._players = players; // array of Players
     }
 
-	deal(numCards) {
-		for (let i = 0; i < numCards; i++) {
-			this._players.forEach((player) => {
-				player.addToHand(this._deck.draw());
-			});
-		}
-	}
+    deal(numCards) {
+        for (let i = 0; i < numCards; i++) {
+            this._players.forEach((player) => {
+                player.addToHand(this._deck.draw());
+            });
+        }
+    }
 }
 
 
-module.exports = Game;
+export default Game;

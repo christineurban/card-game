@@ -1,14 +1,14 @@
-const Card = require('./card');
-const Suit = require('./suit');
+import Card from './card';
+import Suit from './suit';
 
-module.exports = function build() {
+export default function build() {
     const suits = [
         new Suit(Suit.CLUB.NAME, Suit.CLUB.COLOR),
         new Suit(Suit.DIAMOND.NAME, Suit.DIAMOND.COLOR),
         new Suit(Suit.HEART.NAME, Suit.HEART.COLOR),
         new Suit(Suit.SPADE.NAME, Suit.SPADE.COLOR)
     ]
-    const values = [
+    const names = [
         'ace',
         'two',
         'three',
@@ -25,8 +25,8 @@ module.exports = function build() {
     ];
 
     return [].concat.apply([], suits.map((suit) => {
-        return values.map((value, i) => {
-            return new Card(suit, i+1, `${value} of ${suit.getName()}s`);
+        return names.map((name, i) => {
+            return new Card(suit, i+1, `${name} of ${suit.getName()}s`);
         });
     }));
 }

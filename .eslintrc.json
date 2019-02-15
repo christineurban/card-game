@@ -4,6 +4,10 @@
         "indent": ["error", 4],
         "semi": 0,
         "space-before-function-paren": ["error", "never"],
-        "space-infix-ops": "off"
+        "space-infix-ops": "off",
+        "no-multiple-empty-lines": [2, { "max": 2, "maxEOF": 1 }],
+        "no-this-before-super": "off",
+        "no-mixed-operators": "off",
+        "brace-style": [2, "stroustrup"]
     }
 }

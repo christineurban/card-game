@@ -10,12 +10,14 @@ class Deck {
     }
 
     shuffle(times=1) {
-	    for (let i = 0; i < this._cards.length * times; i++) {
-		    const randIndex = Math.floor(Math.random() * i);
+        for (let i = 0; i < this._cards.length * times; i++) {
+            const randIndex = Math.floor(Math.random() * i);
 
-		    this._cards[i], this._cards[randIndex] = this._cards[randIndex] = this._cards[i];
-	    }
-	}
+            /* eslint-disable */
+            this._cards[i], this._cards[randIndex] = this._cards[randIndex] = this._cards[i];
+            /* eslint-enable */
+        }
+    }
 
     cut(percentage=50) {
         const index = this._cards.length * percentage / 100;
@@ -24,4 +26,4 @@ class Deck {
 }
 
 
-module.exports = Deck;
+export default Deck;

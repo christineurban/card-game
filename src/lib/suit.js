@@ -38,4 +38,4 @@ class Suit {
 }
 
 
-module.exports = Suit;
+export default Suit;

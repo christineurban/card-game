@@ -1,7 +1,8 @@
 class Player {
-    constructor(name, hand, score=0) {
+    constructor(name, hand, type='player', score=0) {
         this._name = name; // string
         this._hand = hand; // Hand
+        this._type = type; // string
         this._score = score; // int
     }
 
@@ -9,10 +10,30 @@ class Player {
         this._score = score;
     }
 
-	addToHand(card) {
-		this._hand.addCard(card);
-	}
+    updateScore(amount) {
+        this._score += amount;
+    }
+
+    addToHand(card) {
+        this._hand.addCard(card);
+    }
+
+    getName() {
+        return this._name;
+    }
+
+    getHand() {
+        return this._hand.getHand();
+    }
+
+    getType() {
+        return this._type;
+    }
+
+    getScore() {
+        return this._score;
+    }
 }
 
 
-module.exports = Player;
+export default Player;
