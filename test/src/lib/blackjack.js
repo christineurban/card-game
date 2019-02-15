@@ -12,12 +12,7 @@ describe('Blackjack', function() {
 
     beforeEach(function() {
         blackjack = new Blackjack(
-            [
-                new Player('Player 1', new Hand()),
-                new Player('Player 2', new Hand()),
-                new Player('Player 3', new Hand()),
-                new Player('Player 4', new Hand())
-            ],
+            [ new Player('Christine', new Hand()) ],
             new Player('Dealer', new Hand(), 'dealer')
         );
     });

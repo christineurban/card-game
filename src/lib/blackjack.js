@@ -1,11 +1,16 @@
 import build from './deck-builder';
 import Deck from './deck';
+import Game from './game';
 
-class Blackjack {
+
+class Blackjack extends Game {
     constructor(players, dealer) {
-        this._players = players;
-        this._dealer = dealer;
-        this._deck = new Deck(build());
+        super(
+            'Blackjack',
+            new Deck(build()),
+            players,
+            dealer
+        );
     }
 
     play() {
@@ -18,13 +23,7 @@ class Blackjack {
         console.log('\n\n----------------- B L A C K J A C K -----------------');
 
         this._deck.shuffle();
-
-        for (let i = 0; i < 2; i++) {
-            this._players.forEach((player) => {
-                player.addToHand(this._deck.draw()[0]);
-            });
-            this._dealer.addToHand(this._deck.draw()[0]);
-        }
+        this.deal(2, true);
 
         let dealerCardFaceUp = this._getNumericValue(this._dealer.getHand()[0].getValue());
 
@@ -38,10 +37,10 @@ class Blackjack {
     }
 
     _playRounds(dealerCardFaceUp) {
-        let standingPlayers = [];
+        const standingPlayers = [];
+        let round = 1;
 
         while (this._players.length) {
-            let round = 1;
             console.log(`\n-------\nRound ${round}\n-------\n`)
 
             this._players.forEach((player) => {
@@ -142,15 +141,14 @@ class Blackjack {
                 possibleHands.push(total + aceCount + i * 10)
             }
 
-            let prevHand;
+            let prevHand = possibleHands[0];
 
-            possibleHands.forEach((hand) => {
+            possibleHands.some((hand) => {
                 if (hand > 21) {
-                    return prevHand || hand;
+                    return true;
                 }
-                else {
-                    prevHand = hand;
-                }
+
+                prevHand = hand;
             });
 
             return prevHand;
@@ -159,12 +157,6 @@ class Blackjack {
 
     _getNumericValue(value) {
         return value > 10 ? 10 : value;
-    }
-
-    _removePlayer(player) {
-        this._players = this._players.filter((p) => {
-            return player.getName() !== p.getName();
-        });
     }
 }
 
